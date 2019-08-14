@@ -3,7 +3,7 @@ head
   title New Book
   link(rel='stylesheet' href='../static/stylesheets/style.css')
 h1 New Book
-form
+form(action='/books/new' method='post')
   p
     label(for='title') Title
     input#title(name='title' type='text')

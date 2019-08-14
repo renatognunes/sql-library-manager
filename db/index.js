@@ -5,7 +5,6 @@ const sequelize = new Sequelize({
   storage: 'library.db', 
   define: {
     timestamps: true,
-    // freezeTableName: true,
   },
   logging: false,
 });

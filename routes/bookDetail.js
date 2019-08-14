@@ -8,12 +8,11 @@ const express = require("express");
 const router = express.Router();
 
 // Route serving /index
-router.get("/books", async (req, res) => {
-  await Book.findAll({
-    attributes: ["id", "title", "author", "genre", "year"]
-  }).then(data => {
-    const bookData = data.map(book => book.toJSON());
-    res.render("all_books", { books: bookData });
+router.get("/books/:id", async (req, res) => {
+  await Book.findByPk(req.params.id)
+    .then( detail => {
+      console.log(data.toJSON())
+      res.render("book_detail", {book: detail})
   });
 });
 

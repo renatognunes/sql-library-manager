@@ -3,12 +3,6 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize) => {
   class Book extends Sequelize.Model {}
   Book.init({
-    // Set custom primary key column
-    // id: {
-    //   type: Sequelize.INTEGER,
-    //   primaryKey: true,
-    //   autoIncrement: true,
-    // },
     title: {
       type: Sequelize.STRING,
       allowNull: false,
