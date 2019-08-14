@@ -1,0 +1,34 @@
+{
+  "name": "sql-library-manager",
+  "version": "1.0.0",
+  "description": "An application for a local library to help them manage their collection of books.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatognunes/sql-library-manager.git"
+  },
+  "keywords": [
+    "slq",
+    "express",
+    "node",
+    "sequelize",
+    "database",
+    "javascript"
+  ],
+  "author": "Renato G. Nunes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/renatognunes/sql-library-manager/issues"
+  },
+  "homepage": "https://github.com/renatognunes/sql-library-manager#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4",
+    "sequelize": "^5.14.0",
+    "sqlite3": "^4.0.9"
+  }
+}
