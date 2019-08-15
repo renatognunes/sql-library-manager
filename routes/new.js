@@ -15,13 +15,12 @@ router.get("/books/new", (req, res) => {
 // Route POST serving /books/new
 router.post("/books/new", async (req, res) => {
   try {
-    const movie = await Book.create({
+    await Book.create({
       title: req.body.title,
       author: req.body.author,
       genre: req.body.genre,
       year: parseInt(req.body.year)
     });
-    console.log(movie.toJSON());
   } catch (error) {
     if (error.name === "SequelizeValidationError") {
       const errors = error.errors.map(err => err.message);
