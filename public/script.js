@@ -5,7 +5,8 @@ FSJS project 8 - SQL Library Manager
 
 // Global Variables
 const table = document.querySelector("table");
-const body = document.querySelector("body");
+// const body = document.querySelector("body");
+const content = document.querySelector(".content");
 const columns = document.querySelector("tbody").children;
 const button = document.querySelector("button");
 const input = document.querySelector("input");
@@ -16,7 +17,19 @@ messageText.innerHTML = "No results found!";
 messageText.style.display = "none";
 table.insertAdjacentElement("afterend", messageText);
 
+const p = document.createElement("p");
+p.style.display = "none";
+
+const buttonReturn = document.createElement("a");
+buttonReturn.className = "button";
+buttonReturn.href="/books";
+buttonReturn.textContent = "Return";
+
+p.appendChild(buttonReturn);
+messageText.insertAdjacentElement("afterend", p);
+
 const noStudentsFound = display => {
+  p.style.display = display;
   messageText.style.display = display;
 };
 
@@ -36,7 +49,7 @@ const search = (input, columns) => {
   const page = document.querySelector(".pagination");
   const results = [];
   if (input.value === "") {
-    body.removeChild(page);
+    content.removeChild(page);
     showPage(columns, 1);
     appendPageLinks(columns);
     noStudentsFound("none");
@@ -57,12 +70,12 @@ const search = (input, columns) => {
     if (results.length > 0) {
       console.log(table);
       noStudentsFound("none");
-      body.removeChild(page);
+      content.removeChild(page);
       showPage(results, 1);
       appendPageLinks(results);
     } else {
       noStudentsFound("");
-      body.removeChild(page);
+      content.removeChild(page);
       showPage(results, 1);
       appendPageLinks(results);
     }
@@ -108,7 +121,7 @@ const showPage = (list, page) => {
 const appendPageLinks = list => {
   const div = document.createElement("div");
   div.className = "pagination";
-  body.insertAdjacentElement("beforeend", div);
+  content.insertAdjacentElement("beforeend", div);
   const ul = document.createElement("ul");
   div.appendChild(ul);
 
