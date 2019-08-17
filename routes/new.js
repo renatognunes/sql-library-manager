@@ -21,15 +21,14 @@ router.post("/books/new", async (req, res) => {
       genre: req.body.genre,
       year: parseInt(req.body.year)
     });
+    res.redirect('/books');
   } catch (error) {
     if (error.name === "SequelizeValidationError") {
+      res.render('new_book', { formError: true });
       const errors = error.errors.map(err => err.message);
       console.error("Validation errors: ", errors);
-    } else {
-      throw error;
     }
   }
-  res.redirect("/books");
 });
 
 // Route "/books/new"

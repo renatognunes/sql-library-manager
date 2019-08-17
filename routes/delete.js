@@ -9,7 +9,7 @@ const router = express.Router();
 
 // Route serving /index
 router.post("/books/:id/delete", async (req, res) => {
-  const book = await Book.findByPk(req.params.id).destroy();
+  const book = await Book.findByPk(req.params.id);
   await book.destroy();
   res.redirect('/books');
 });

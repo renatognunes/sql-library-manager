@@ -34,15 +34,17 @@ app.set('view engine', 'pug');
 app.use((req, res, next) => {
   const err = new Error('Not Found');
   err.status = 404;
-  console.log('Ops! Sorry, There is a problem!', err);
   next(err);
 });
 
 // Error Handling Middleware
 app.use((err, req, res, next) => {
-   res.locals.error = err;
-   res.status(err.status);
-   res.render('error');
+      if(err.status === 404) {
+         res.render('page_not_found');
+         console.log('Ops! Sorry, There is a problem!', err);
+      } else {
+         res.render('error');
+      }
 })
 
 // Setup a development server

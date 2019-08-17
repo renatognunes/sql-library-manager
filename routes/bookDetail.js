@@ -8,30 +8,30 @@ const express = require("express");
 const router = express.Router();
 
 // Route serving /index
-router.get("/books/:id", async (req, res) => {
-  const book = await Book.findByPk(req.params.id);
-  res.render("book_detail", { book: book });
+router.get("/books/:id", async (req, res, next) => {
+    await Book.findByPk(req.params.id)
+      .then( book => res.render("book_detail", { book }))
+      .catch(next)
 });
 
 // Route serving /index
 router.post("/books/:id", async (req, res) => {
+  const book = await Book.findByPk(req.params.id);
   try {
-    const book = await Book.findByPk(req.params.id);
     await book.update({
       title: req.body.title,
       author: req.body.author,
       genre: req.body.genre,
       year: parseInt(req.body.year)
     });
+    res.redirect('/books');
   } catch (error) {
     if (error.name === "SequelizeValidationError") {
+      res.render('book_detail', { book , formError: true });
       const errors = error.errors.map(err => err.message);
       console.error("Validation errors: ", errors);
-    } else {
-      throw error;
     }
   }
-  res.redirect("/books");
 });
 
 // Route "/books"
