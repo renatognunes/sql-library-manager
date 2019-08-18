@@ -98,6 +98,21 @@ form .delete-button input[type=submit]:hover{
   background: #b63333;
 }
 
+form .delete-button input[type=submit]:focus {
+  outline:0;
+}
+
+button[type=submit]:focus {
+  outline:0;
+}
+
+input[type=text]:focus {
+  /* border: 2px solid #3f73e2; */
+  box-shadow: inset 0px 0px 0px 2px #3f73e2;
+  outline:0;
+}
+
+
 
 th {
   font-family: 'Roboto', sans-serif;
@@ -117,9 +132,16 @@ tr:nth-child(1n) {
   background: rgb(255, 255, 255);
 }
 
-
 tr:nth-child(2n) {
   background: rgb(241, 244, 247);
+}
+
+tbody tr:hover {
+  background: rgb(254, 255, 175)
+}
+
+tr a{
+  display: block; 
 }
 
 td {
@@ -139,7 +161,7 @@ input[type=text] {
   padding-left: 15px; 
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 25px;
   box-sizing: border-box;
 }
 

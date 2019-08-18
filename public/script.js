@@ -64,6 +64,7 @@ const search = (input, columns) => {
         ) {
           columns[i].style.display = "";
           results.push(columns[i]);
+          break; 
         }
       }
     }
@@ -87,6 +88,11 @@ const search = (input, columns) => {
 button.addEventListener("click", event => {
   event.preventDefault();
   search(input, columns);
+});
+
+input.addEventListener('keyup', event => {
+  event.preventDefault();
+     search(input, columns);
 });
 
 const perPage = 10;

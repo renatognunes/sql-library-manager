@@ -24,8 +24,11 @@ block content
               tr
                 td
                   a(href=`books/${book.id}`) #{book.title}
-                td #{book.author}
-                td #{book.genre}
-                td #{book.year}
+                td
+                  a(href=`books/${book.id}`) #{book.author}
+                td
+                  a(href=`books/${book.id}`) #{book.genre}
+                td
+                  a(href=`books/${book.id}`) #{book.year}
   script(src='/static/script.js')
 
