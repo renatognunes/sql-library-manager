@@ -1,5 +1,9 @@
 const Sequelize = require('sequelize');
 
+/**
+ * Create new Sequelize instance
+ * @const sequelize
+ */
 const sequelize = new Sequelize({
   dialect: 'sqlite',
   storage: 'library.db', 
@@ -9,6 +13,10 @@ const sequelize = new Sequelize({
   logging: false,
 });
 
+/**
+ * Include Book module to the database
+ * @const db
+ */
 const db = {
   sequelize,
   Sequelize,
@@ -17,4 +25,5 @@ const db = {
 
 db.models.Book = require('./models/book.js')(sequelize);
 
+// Exports db module
 module.exports = db;

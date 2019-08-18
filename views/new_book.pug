@@ -5,12 +5,11 @@ block content
     div.content
       h1 Add New Book
       form(action='/books/new' method='post' class='main-form')
-        if formError
-          div.error
-            h2 Oooops!
-            ul
-              li • Title is required
-              li • Author is required
+        ul.error
+          if isTitleEmpty
+            li • Title is required
+          if isAuthorEmpty  
+            li • Author is required
         p
           label(for='title') Title
           input#title(name='title' type='text')

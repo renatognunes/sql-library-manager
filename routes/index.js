@@ -1,13 +1,26 @@
-// Express Web Framework module
+/**
+ * Express Web Framework module
+ * @requires express
+ */
 const express = require('express');
 
-// Express router to mounts the router module on a path in the main app.
+/**
+ * Express Router
+ * @method Router
+ */
 const router = express.Router();
 
-// Route serving /index
+/**
+ * Router for redirecting homepage to "/books"
+ * @method GET
+ * @param {express.resquest}
+ * @param {express.response}
+ * @inner
+ *  @returns redirect URI
+ */
 router.get('/', (req, res) => {
   res.redirect('/books');
 });
 
-// Route "/"
+// Export "/" Router
 module.exports = router;

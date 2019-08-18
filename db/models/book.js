@@ -1,5 +1,10 @@
 const Sequelize = require('sequelize');
 
+/**
+ * Module Book initialize the Book table model
+ * @namespace Book
+ * @extends Sequelize.Model
+ */
 module.exports = (sequelize) => {
   class Book extends Sequelize.Model {}
   Book.init({
@@ -36,7 +41,6 @@ module.exports = (sequelize) => {
       allowNull: true
     },
   },
-  // Model options object
   {
    sequelize 
   });

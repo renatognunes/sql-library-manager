@@ -1,14 +1,32 @@
+/**
+ * Import database Book model
+ * @const Book 
+ */
 const db = require("../db");
 const { Book } = db.models;
-const { Op } = db.Sequelize;
 
-// Express Web Framework module
+/**
+ * Express Web Framework module
+ * @requires express
+ */
 const express = require("express");
 
-// Express router to mounts the router module on a path in the main app.
+/**
+ * Express Router
+ * @method Router
+ */
 const router = express.Router();
 
-// Route serving /index
+/**
+ * Router for all Books homepage
+ * @method GET
+ * @param {express.resquest}
+ * @param {express.response}
+ * @param {express.next}
+ * @inner
+ *  @returns {Promise} await
+ *  @returns {JSON} render template
+ */
 router.get("/books", async (req, res, next) => {
   await Book.findAll({
     attributes: ["id", "title", "author", "genre", "year"]
@@ -18,5 +36,5 @@ router.get("/books", async (req, res, next) => {
   }).catch(next);
 });
 
-// Route "/books"
+// Export "/books" router
 module.exports = router;
