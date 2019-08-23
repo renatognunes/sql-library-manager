@@ -1,4 +1,4 @@
-Treehouse Techdegree: FSJS project 8 - SQL Library Manager
+SQL Library Management System
 
 ### `npm install`
 ### `npm start`
@@ -31,6 +31,3 @@ Tools:
 - Git
 - NodeJS
 - Command line
-
-Examiner:
-For styling, I've chosen a minimalist approach. I've changed colors, buttons, fonts, transitions, and borders.
